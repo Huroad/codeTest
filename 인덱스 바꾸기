@@ -1,0 +1,29 @@
+package Solution1;
+
+public class Main {
+    public static void main(String[] args) {
+        Solution sol = new Solution();
+        //문제 들어오는 값
+
+        String my_string = "hello";
+        int num1 = 1;
+        int num2 = 2;
+        sol.solution(my_string, num1, num2);
+    }
+
+    static class Solution {
+        public String solution(String my_string, int num1, int num2) {
+            String answer = "";
+            StringBuilder sb = new StringBuilder(my_string);
+            char str1 = sb.charAt(num1);
+            sb.setCharAt(num1, sb.charAt(num2));
+            sb.setCharAt(num2, str1);
+            answer = sb.toString();
+            System.out.println(answer);
+            return answer;
+        }
+    }
+
+
+}
+
