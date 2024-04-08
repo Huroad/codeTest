@@ -1,0 +1,38 @@
+import java.util.Arrays;
+
+//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
+// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+public class Main {
+    public static void main(String[] args){
+        Solution sol = new Solution();
+        //문제 들어오는 값
+        String s = "helloaeikufhausldkhf";
+        sol.solution(s);
+    }
+
+    static class Solution {
+        //코테 복사하는곳
+        public String solution(String s) {
+            String answer = "";
+            //중복제거 후 사전순서대로 문자 배열
+
+            //중복제거
+            StringBuilder sb = new StringBuilder();
+//            System.out.println(s);
+            int[] counts = new int[1000];
+            for (int i = 0; i < s.length(); i++) {
+                char ch = s.charAt(i);
+                counts[ch]++;
+            }
+            for (int i = 0; i < counts.length; i++) {
+                if(counts[i] == 1){
+                    sb.append((char)i);
+                }
+            }
+            System.out.println(sb);
+            //사전 순서대로 배열
+            answer = sb.toString();
+            return answer;
+        }
+    }
+}
