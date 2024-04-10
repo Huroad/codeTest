@@ -1,0 +1,31 @@
+package Solution1;
+
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+        Solution sol = new Solution();
+        //문제 들어오는 값
+
+        String my_string = "aAb1B2cC34oOp";
+
+        sol.solution(my_string);
+    }
+
+    static class Solution {
+        public int solution(String my_string) {
+            int answer = 0;
+            int[] a = new int[my_string.length()];
+            String[] num = my_string.replaceAll("[A-Z,a-z]"," ").split(" ");
+            System.out.println(Arrays.toString(num));
+            for (int i = 0; i < num.length; i++) {
+                if(!num[i].equals("")) {
+                    answer += Integer.valueOf(num[i]);
+                }
+                System.out.println(answer);
+            }
+            System.out.println(answer);
+            return answer;
+        }
+    }
+}
