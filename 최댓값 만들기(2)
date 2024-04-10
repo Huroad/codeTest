@@ -1,0 +1,36 @@
+package Solution1;
+
+import java.util.Arrays;
+public class Main {
+    public static void main(String[] args) {
+        Solution sol = new Solution();
+        //문제 들어오는 값
+
+        int[] numbers = {1, 2, -3, 4, -5};
+
+        sol.solution(numbers);
+    }
+
+    static class Solution {
+        public int solution(int[] numbers) {
+            int answer = 0;
+            Arrays.sort(numbers);
+            // 양수 곱
+            int num1 = numbers[numbers.length - 1] * numbers[numbers.length - 2];
+
+            //음수 곱
+            int num2 = numbers[0] * numbers[1];
+
+            if(num1 <= num2) {
+                answer = num2;
+            }else {
+                answer = num1;
+            }
+            System.out.println(answer);
+            return answer;
+        }
+    }
+
+
+}
+
