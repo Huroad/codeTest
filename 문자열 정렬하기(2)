@@ -1,0 +1,38 @@
+package Solution1;
+
+import java.util.Arrays;
+public class Main {
+    public static void main(String[] args) {
+        Solution sol = new Solution();
+        //문제 들어오는 값
+
+        String my_string = "Bcad";
+
+        sol.solution(my_string);
+    }
+
+    static class Solution {
+        public String solution(String my_string) {
+            String answer = "";
+            //소문자로 정렬
+            // 아스키코드로 받아서 배열에넣고 그배열을 sort
+            int[] strArr = new int[my_string.length()];
+            for (int i = 0; i < strArr.length; i++) {
+                if(my_string.charAt(i) < 97) {
+                    strArr[i] = my_string.charAt(i) + 32;
+                }else {
+                    strArr[i] = my_string.charAt(i);
+                }
+            }
+            Arrays.sort(strArr);
+            for (int i = 0; i < strArr.length; i++) {
+                answer += (char)strArr[i];
+            }
+            System.out.println(answer);
+            return answer;
+        }
+    }
+
+
+}
+
