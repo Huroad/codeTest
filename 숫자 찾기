@@ -1,0 +1,35 @@
+package Solution1;
+
+import java.util.Arrays;
+public class Main {
+    public static void main(String[] args) {
+        Solution sol = new Solution();
+        //문제 들어오는 값
+
+        int num = 291832;
+        int k = 5;
+
+        sol.solution(num, k);
+    }
+
+    static class Solution {
+        public int solution(int num, int k) {
+            int answer = -1;
+            //num 안에 k의 숫자가 있으면 k번째 자리의 숫자 리턴 없으면 -1
+            String numStr = String.valueOf(num);
+            String kStr = String.valueOf(k);
+            for (int i = 0; i < numStr.length(); i++) {
+                if(numStr.charAt(i) == kStr.charAt(0)) {
+                    answer = i + 1;
+                    break;
+                }
+            }
+            System.out.println(answer);
+
+            return answer;
+        }
+    }
+
+
+}
+
