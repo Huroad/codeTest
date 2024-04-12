@@ -1,0 +1,33 @@
+package Solution1;
+
+public class Main {
+    public static void main(String[] args) {
+        Solution sol = new Solution();
+        //문제 들어오는 값
+
+        int[][] dots = {{1, 1}, {2, 1}, {2, 2}, {1, 2}};
+        sol.solution(dots);
+    }
+
+    static class Solution {
+        public int solution(int[][] dots) {
+            int answer = 0;
+            int xMax = 0;
+            int yMax = 0;
+            int x = dots[0][0];
+            int y = dots [0][1];
+            // 값이 x,y와 다른값은 하나이므로
+            for (int i = 0; i < dots.length; i++) {
+                if(x != dots[i][0]){
+                    xMax = Math.abs(x - dots[i][0]);
+                }
+                if(y != dots[i][1]){
+                    yMax = Math.abs(y - dots[i][1]);
+                }
+            }
+            answer = xMax * yMax;
+            System.out.println(answer);
+            return answer;
+        }
+    }
+}
