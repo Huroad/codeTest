@@ -1,0 +1,36 @@
+package Solution1;
+
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+        Solution sol = new Solution();
+        //문제 들어오는 값
+
+        String my_str = "abc1Addfggg4556b";
+        int n = 6;
+        sol.solution(my_str, n);
+    }
+
+    static class Solution {
+        public String[] solution(String my_str, int n) {
+            int myLength = my_str.length() / n;
+            if(my_str.length() % n > 0){
+                myLength++;
+            }
+            String[] answer = new String[myLength];
+            // n씩 자른다 자르고 남은배열은 맨마지막에 출력
+            for (int i = 0; i < myLength; i++) {
+                String stack = "";
+                for (int j = i * n; j < my_str.length(); j++) {
+                    if(stack.length() <= n - 1) {
+                        stack += my_str.charAt(j);
+                    }
+                }
+                answer[i] = stack;
+            }
+            System.out.println(Arrays.toString(answer));
+            return answer;
+        }
+    }
+}
