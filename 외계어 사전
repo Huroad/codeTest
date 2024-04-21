@@ -1,0 +1,38 @@
+package Solution1;
+
+import java.util.Arrays;
+import java.util.ArrayList;
+
+public class Main {
+    public static void main(String[] args) {
+        Solution sol = new Solution();
+        //문제 들어오는 값
+
+        String[] spell = {"p", "o", "s"};
+        String[] dic = {"sod", "eocd", "qixm", "adio", "soo", " pdfeofs"};
+        sol.solution(spell, dic);
+    }
+
+    static class Solution {
+        public int solution(String[] spell, String[] dic) {
+            int answer = 2;
+            //spell의 모든단어가 들어가면 1 없으면 2
+            for (int i = 0; i < dic.length; i++) {
+                int x = 0;
+                for (int j = 0; j < spell.length; j++) {
+                    if(dic[i].contains(spell[j])) {
+                        x++;
+                    }
+                }
+                if(x == spell.length) {
+                    answer = 1;
+                    break;
+                }
+            }
+            System.out.println(answer);
+
+            return answer;
+        }
+    }
+}
+
