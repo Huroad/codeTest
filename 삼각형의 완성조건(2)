@@ -1,0 +1,28 @@
+package Solution1;
+
+import java.util.Arrays;
+import java.util.ArrayList;
+
+public class Main {
+    public static void main(String[] args) {
+        Solution sol = new Solution();
+        //문제 들어오는 값
+
+        int[] spell = {1, 2};
+
+        sol.solution(spell);
+    }
+
+    static class Solution {
+        public int solution(int[] sides) {
+            int answer = 0;
+            //경우의수
+            // 긴변은 나머지 두변의 합보다 작아야함
+            Arrays.sort(sides);
+            answer += sides[0] * 2 - 1;
+            
+            return answer;
+        }
+    }
+}
+
