@@ -1,0 +1,27 @@
+package Solution1;
+
+public class Main {
+    public static void main(String[] args) {
+        Solution sol = new Solution();
+
+        int n = 40;
+
+        sol.solution(n);
+    }
+
+    static class Solution {
+        public int solution(int n) {
+            int answer = 0;
+            //3과 3의 배수를 뺀숫자
+            for (int i = 1; i <= n; i++) {
+                answer++;
+                while (answer % 3 == 0 || String.valueOf(answer).contains("3")) {
+                    answer++;
+                }
+            }
+            System.out.println(answer);
+            return answer;
+        }
+    }
+}
+
