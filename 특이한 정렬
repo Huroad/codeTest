@@ -1,0 +1,53 @@
+package Solution1;
+
+import java.util.Arrays;
+import java.util.Collections;
+
+public class Main {
+    public static void main(String[] args) {
+        Solution sol = new Solution();
+
+        int[] numlist = {10000, 20, 36, 47, 40, 6, 10, 7000};
+        int n = 30;
+
+        sol.solution(numlist, n);
+    }
+
+    static class Solution {
+        public int[] solution(int[] numlist, int n) {
+            int[] answer = new int[numlist.length];
+
+            // numlist를 뺸값을 배열에 저장
+            int a = numlist.length;
+            Integer[] arrex = new Integer[a];
+            for (int i = 0; i < numlist.length; i++) {
+                arrex[i] = numlist[i] - n;
+            }
+            System.out.println(Arrays.toString(arrex));
+
+            //내림차순 정렬
+            Arrays.sort(arrex, Collections.reverseOrder());
+            System.out.println(Arrays.toString(arrex));
+
+            //0과 가까운 순서대로 배열에 넣어준다 (버블정렬)
+            for (int i = 0; i < a - 1; i++) {
+                for (int j = 0; j < a - i - 1; j++) {
+                    if (Math.abs(arrex[j]) > Math.abs(arrex[j + 1])) {
+                        int temp = arrex[j];
+                        arrex[j] = arrex[j + 1];
+                        arrex[j + 1] = temp;
+                    }
+                }
+            }
+            System.out.println(Arrays.toString(arrex));
+
+            //answer배열에 n값을 더한걸 넣어준다
+            for (int i = 0; i < a; i++) {
+                answer[i] = arrex[i] + n;
+            }
+            System.out.println(Arrays.toString(answer));
+            return answer;
+        }
+    }
+}
+
