@@ -1,0 +1,47 @@
+package Solution1;
+
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+        Solution sol = new Solution();
+
+        //int[][] score = {{80, 70}, {90, 50}, {40, 70}, {50, 80}};
+        int[][] score = {{80, 70}, {70, 80}, {30, 50}, {90, 100}, {100, 90}, {100, 100}, {10, 30}};
+
+        sol.solution(score);
+    }
+
+    static class Solution {
+        public int[] solution(int[][] score) {
+            int[] answer = new int[score.length];
+            //두개의 평균값을 등수로
+            //평균값이 같으면 등수가 같고 같은 등수만큼 스킵
+            double[] sum = new double[score.length];
+            for (int i = 0; i < score.length; i++) {
+                double a = 0;
+                for (int j = 0; j < 2; j++) {
+                  a += score[i][j];
+                }
+                sum[i] = a / 2;
+            }
+            System.out.println(Arrays.toString(sum));
+            int a = sum.length;
+            for (int i = 0; i < a; i++) {
+                int b = sum.length;
+                for (int j = 0; j < a; j++) {
+                    if(sum[i] > sum[j]) {
+                        b--;
+                    } else if (sum[i] == sum[j] && i != j) {
+                        b--;
+                    }
+                }
+                answer[i] = b;
+            }
+
+            System.out.println(Arrays.toString(answer));
+            return answer;
+        }
+    }
+}
+
