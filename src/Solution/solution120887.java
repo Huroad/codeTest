@@ -1,4 +1,4 @@
-package Solution120876;
+package Solution;
 
 public class solution120887 {
     public static void main(String[] args) {
