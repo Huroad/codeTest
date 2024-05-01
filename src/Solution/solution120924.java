@@ -1,4 +1,4 @@
-package Solution120956.src.Solution;
+package Solution;
 
 public class solution120924 {
     public static void main(String[] args) {
